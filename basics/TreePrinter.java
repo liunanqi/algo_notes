@@ -9,6 +9,7 @@ public class TreeNode {
         this.val = val;
     }
 }*/
+
 public class TreePrinter {
     public int[][] printTree(TreeNode root) {
         // write code here
