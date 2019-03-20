@@ -1,6 +1,6 @@
 public class QuickSort {
     public static void main(String[] args){
-        int[] eg = MathUtils.generateIntArray(10, 100);
+        int[] eg = MathUtils.generateIntArray(20, 100);
         System.out.println("Original Array:");
         for(int i = 0; i < eg.length; i++){
             System.out.print(eg[i] + " ");
