@@ -1,9 +1,14 @@
 public class QuickSort {
     public static void main(String[] args){
-        int[] eg = {3, 5, 1, 4, 6, 7, 2, 4, 3};
-        quickSort(eg);
+        int[] eg = MathUtils.generateIntArray(10, 100);
+        System.out.println("Original Array:");
         for(int i = 0; i < eg.length; i++){
-            System.out.println(eg[i]);
+            System.out.print(eg[i] + " ");
+        }
+        quickSort(eg);
+        System.out.println("\nSorted Array:");
+        for(int i = 0; i < eg.length; i++){
+            System.out.print(eg[i] + " ");
         }
     }
 
