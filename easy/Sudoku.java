@@ -11,7 +11,9 @@ public class Sudoku {
                 {'.','.','.','4','1','9','.','.','5'},
                 {'.','.','.','.','8','.','.','7','9'}
         };
+		
         boolean isValid = isValidSudoku(board);
+		
         System.out.println("Is this Sudoku valid?\n" + isValid);
     }
 
