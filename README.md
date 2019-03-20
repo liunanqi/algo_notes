@@ -1,2 +1,2 @@
 # algo_notes
-algorithms learning notes
+java learning notes
