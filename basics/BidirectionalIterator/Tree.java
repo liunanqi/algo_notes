@@ -24,7 +24,7 @@ public interface Tree<E extends Comparable<E>> extends Iterable<E> {
 
     /** Return true if the tree is empty */
     public boolean isEmpty();
-//
+
 //  /** Return an iterator to traverse elements in the tree */
 //  public java.util.Iterator<E> iterator();
 }

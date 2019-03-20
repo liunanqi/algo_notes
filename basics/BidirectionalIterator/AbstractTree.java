@@ -16,7 +16,7 @@ public abstract class AbstractTree<E extends Comparable<E>>
     public boolean isEmpty() {
         return getSize() == 0;
     }
-//
+
 //  @Override /** Return an iterator for the tree */
 //  public java.util.Iterator<E> iterator() {
 //    return null;

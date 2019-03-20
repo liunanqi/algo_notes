@@ -85,7 +85,6 @@ public class BidirectionalIterator {
                 else
                     parent.right = createNewNode(e);
             }
-
             size++;
             return true; // Element inserted successfully
         }
