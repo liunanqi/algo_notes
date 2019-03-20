@@ -1,6 +1,6 @@
 public class MyAtoi {
     public static void main(String[] args){
-        String str = "2547856210";
+        String str = "254785621";
         System.out.println(String.valueOf(atoi(str)));
     }
     public static int atoi(String str){
