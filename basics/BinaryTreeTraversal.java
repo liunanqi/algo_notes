@@ -23,6 +23,10 @@ public class BinaryTreeTraversal {
 
     }
 
+    public void preOrderIterative(TreeNode root){
+
+    }
+
     public void inOrder(TreeNode root){
         if(root == null) return;
         inOrder(root.left);
@@ -30,11 +34,19 @@ public class BinaryTreeTraversal {
         inOrder(root.right);
     }
 
+    public void inOrderIterative(TreeNode root){
+
+    }
+
     public void postOrder(TreeNode root){
         if(root == null) return;
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.val + " ");
+    }
+
+    public void postOrderIterative(TreeNode root){
+
     }
 
     public List<List<Integer>> levelOrder(TreeNode root){
@@ -136,4 +148,58 @@ public class BinaryTreeTraversal {
         }
         return result;
     }
+
+    private TreeNode ans = null;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        recurseTree(root, p, q);
+        return this.ans;
+    }
+
+    public boolean recurseTree(TreeNode curNode, TreeNode p, TreeNode q){
+        if(curNode == null) return false;
+        int left = this.recurseTree(curNode.left, p, q)? 1 : 0;
+        int right = this.recurseTree(curNode.right, p, q) ? 1 : 0;
+        int mid = (curNode == p || curNode == q) ? 1 : 0;
+        if((left + right + mid) >= 2){
+            this.ans = curNode;
+        }
+        return (left + right + mid) > 0;
+    }
+
+    public TreeNode lowestCommonAncestorIterative(TreeNode root, TreeNode p, TreeNode q) {
+
+        return root;
+    }
+
+    public TreeNode lowestCommonAncestorInBST(TreeNode root, TreeNode p, TreeNode q) {
+        int parentValue = root.val;
+        int pValue = p.val;
+        int qValue = q.val;
+        if(pValue > parentValue && qValue > parentValue){
+            return lowestCommonAncestorInBST(root.right, p, q);
+        }else if(pValue < parentValue && qValue < parentValue){
+            return lowestCommonAncestorInBST(root.left, p, q);
+        }else{
+            return root;
+        }
+    }
+
+    public TreeNode lowestCommonAncestorInBSTIterative(TreeNode root, TreeNode p, TreeNode q) {
+        int pValue = p.val;
+        int qValue = q.val;
+        TreeNode node = root;
+        while(node != null){
+            int parentValue = node.val;
+
+            if(pValue > parentValue && qValue > parentValue){
+                node = node.right;
+            }else if(pValue < parentValue && qValue < parentValue){
+                node = node.left;
+            }else{
+                return node;
+            }
+        }
+        return null;
+    }
+
 }
