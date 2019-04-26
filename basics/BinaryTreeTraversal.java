@@ -35,7 +35,17 @@ public class BinaryTreeTraversal {
     }
 
     public void inOrderIterative(TreeNode root){
-
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> nodes = new Stack<>();
+        while(root != null || !nodes.isEmpty()){
+            while(root != null){
+                nodes.push(root);
+                root = root.left;
+            }
+            root = nodes.pop();
+            list.add(root.val);
+            root = root.right;
+        }
     }
 
     public void postOrder(TreeNode root){
@@ -202,4 +212,45 @@ public class BinaryTreeTraversal {
         return null;
     }
 
+    public boolean isSymmetric(TreeNode root){
+        return isMirror(root, root);
+    }
+
+    private boolean isMirror(TreeNode root1, TreeNode root2) {
+        if(root1 == null && root2 == null) return true;
+        if(root1 == null || root2 == null) return false;
+        return (root1.val == root2.val) && isMirror(root1.left, root2.right) && isMirror(root1.right, root2.left);
+    }
+
+    public boolean isSymmetricIterative(TreeNode root){
+        Queue<TreeNode> nodes = new LinkedList<>();
+        nodes.add(root);
+        nodes.add(root);
+        while(!nodes.isEmpty()) {
+            TreeNode t1 = nodes.poll();
+            TreeNode t2 = nodes.poll();
+            if(t1 == null && t2 == null) continue;
+            if(t1 == null || t2 == null) return false;
+            if(t1.val != t2.val) return false;
+            nodes.add(t1.left);
+            nodes.add(t2.right);
+            nodes.add(t1.right);
+            nodes.add(t2.left);
+        }
+        return true;
+    }
+
+    public int kthSmallest(TreeNode root, int k) {
+        Stack<TreeNode> nodes = new Stack<>();
+        while(root != null || !nodes.isEmpty()){
+            while(root != null){
+                nodes.push(root);
+                root = root.left;
+            }
+            root = nodes.pop();
+            if(--k == 0) break;
+            root = root.right;
+        }
+        return root.val;
+    }
 }
