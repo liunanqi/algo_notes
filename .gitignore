@@ -1,0 +1,10 @@
+/classes/
+# Default ignored files
+/shelf/
+/workspace.xml
+/.gitignore
+/dbnavigator.xml
+/misc.xml
+/modules.xml
+/vcs.xml
+/algo_notes.iml
